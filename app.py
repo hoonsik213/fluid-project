@@ -151,3 +151,32 @@ The growth-rate equation is used to find the most unstable mode and estimate the
 In this simplified version, the viscosity effect is mainly reflected through dimensionless numbers such as Re and Ca.
 The result is intended for process-level understanding, not exact industrial prediction.
 """)
+st.divider()
+
+st.subheader("Validation View")
+
+if viscosity > 0.03:
+    st.success(
+        "Validation: Higher viscosity increases jet stability and delays breakup. "
+        "This trend agrees with Rayleigh-Plateau theory."
+    )
+else:
+    st.info(
+        "Validation: Lower viscosity allows disturbances to grow faster, "
+        "which can lead to earlier breakup."
+    )
+
+st.divider()
+
+st.subheader("Design Recommendation")
+
+if breakup_distance > L:
+    st.success(
+        "Recommended operating condition: Current settings are suitable "
+        "for delivering the jet to the wafer."
+    )
+else:
+    st.warning(
+        "Recommendation: Increase viscosity, reduce nozzle radius, "
+        "or increase surface tension to improve stability."
+    )
